@@ -1,7 +1,7 @@
 import { ActionCreators } from "../redux/plantsReducer";
 
-
-
+//Calls backend API to reflect in the DB 
+//After advising the backend, it calls Redux to reflect in the frontend
 export const GetPlants = async (dispatch) => {
     try {
         //Call to API 
@@ -13,10 +13,7 @@ export const GetPlants = async (dispatch) => {
             {value: 'Plant 4', waterLevel: 0, id: 4},
             {value: 'Plant 5', waterLevel: 9, id: 5},
         ];
-
         dispatch(ActionCreators.setPlants(response));
-
-
     } catch {
         console.log('GetPlants Error');
     }

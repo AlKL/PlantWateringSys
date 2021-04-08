@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="App">
       <h2>Our Plants</h2>
-      <div style={{ maxWidth: '70%', margin: 'auto' }}>
+      <div style={{ maxWidth: '30%', margin: 'auto' }}>
         <PlantsTable />
       </div>
     </div>
