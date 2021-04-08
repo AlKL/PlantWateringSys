@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import WaterReducer from './waterReducer';
+import PlantReducer from './plantReducer';
 
 export const store = configureStore({
   reducer: {
-    waterReducer: WaterReducer,
+    plantReducer: PlantReducer,
   },
 });

@@ -1,19 +1,21 @@
-
+const initialState = {
+    plants: [],
+}
 
 export const ActionTypes = {
-    SET_WATER: 'SET_WATER',
+    SET_PLANTS: 'SET_PLANTS',
 }
 
 export const ActionCreators = {
-    setWater: payload => ({ type: ActionTypes.SET_WATER, payload }),
+    setPlants: payload => ({ type: ActionTypes.SET_PLANTS, payload }),
 }
 
-//Water Reducer
-const waterReducer = (state = 4, action) => {
+//Plant Reducer
+const plantReducer = (state = initialState, action) => {
     switch (action.type) {
-        //Sets initial water level
-        case ActionTypes.SET_WATER:
-            return state;
+        //Sets initial plants from db
+        case ActionTypes.SET_PLANTS:
+            return { ...state, plants: [...action.payload] };
         //Increment water level
         case 'INC_WATER':
             console.log('start water, water level BEFORE WATERING = ' + state);
@@ -27,4 +29,4 @@ const waterReducer = (state = 4, action) => {
     }
 }
 
-export default waterReducer;
+export default plantReducer;
