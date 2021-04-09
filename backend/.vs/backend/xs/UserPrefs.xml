@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{84D288AE-0319-478E-8E32-F5D9D270E417}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Properties/launchSettings.json" Line="24" Column="56" />
+      <File FileName="Plants.db/Plant.cs" Line="11" Column="2" />
+      <File FileName="obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" Line="4" Column="1" />
+      <File FileName="obj/Debug/netcoreapp3.1/backend.AssemblyInfo.cs" Line="24" Column="1" />
+      <File FileName="Startup.cs" Line="23" Column="53" />
+      <File FileName="Plants.db/AppDbContext.cs" Line="17" Column="1" />
+      <File FileName="Program.cs" Line="23" Column="54" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="backend" expanded="True">
+            <Node name="backend" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="Plants.db" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.backend PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

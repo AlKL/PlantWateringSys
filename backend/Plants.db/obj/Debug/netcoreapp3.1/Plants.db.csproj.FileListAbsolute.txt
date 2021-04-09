@@ -1,0 +1,12 @@
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/bin/Debug/netcoreapp3.1/Plants.db.deps.json
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/bin/Debug/netcoreapp3.1/Plants.db.runtimeconfig.json
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/bin/Debug/netcoreapp3.1/Plants.db.runtimeconfig.dev.json
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/bin/Debug/netcoreapp3.1/Plants.db.dll
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/bin/Debug/netcoreapp3.1/Plants.db.pdb
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/obj/Debug/netcoreapp3.1/Plants.db.csprojAssemblyReference.cache
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/obj/Debug/netcoreapp3.1/Plants.db.AssemblyInfoInputs.cache
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/obj/Debug/netcoreapp3.1/Plants.db.AssemblyInfo.cs
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/obj/Debug/netcoreapp3.1/Plants.db.csproj.CoreCompileInputs.cache
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/obj/Debug/netcoreapp3.1/Plants.db.dll
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/obj/Debug/netcoreapp3.1/Plants.db.pdb
+/Users/alexandrekhien/Documents/SVPlants/backend/Plants.db/obj/Debug/netcoreapp3.1/Plants.db.genruntimeconfig.cache
