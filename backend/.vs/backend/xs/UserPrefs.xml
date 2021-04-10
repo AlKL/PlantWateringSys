@@ -1,13 +1,17 @@
-﻿<Properties StartupConfiguration="{84D288AE-0319-478E-8E32-F5D9D270E417}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+﻿<Properties StartupConfiguration="{A39F8D54-0DB9-4963-92FC-EEF2C4ACB778}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="backend/Program.cs">
     <Files>
       <File FileName="Properties/launchSettings.json" Line="24" Column="56" />
-      <File FileName="Plants.db/Plant.cs" Line="11" Column="2" />
-      <File FileName="obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" Line="4" Column="1" />
-      <File FileName="obj/Debug/netcoreapp3.1/backend.AssemblyInfo.cs" Line="24" Column="1" />
-      <File FileName="Startup.cs" Line="23" Column="53" />
-      <File FileName="Plants.db/AppDbContext.cs" Line="17" Column="1" />
-      <File FileName="Program.cs" Line="23" Column="54" />
+      <File FileName="Plants.db/Plant.cs" />
+      <File FileName="obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+      <File FileName="obj/Debug/netcoreapp3.1/backend.AssemblyInfo.cs" />
+      <File FileName="Startup.cs" />
+      <File FileName="Plants.db/AppDbContext.cs" Line="8" Column="1" />
+      <File FileName="Program.cs" />
+      <File FileName="Plants.Core/PlantsServices.cs" Line="44" Column="1" />
+      <File FileName="backend/Startup.cs" Line="51" Column="16" />
+      <File FileName="backend/appsettings.json" Line="11" Column="1" />
+      <File FileName="backend/Program.cs" Line="18" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,6 +21,7 @@
               <Node name="Controllers" expanded="True" />
               <Node name="Program.cs" selected="True" />
             </Node>
+            <Node name="Plants.Core" expanded="True" />
             <Node name="Plants.db" expanded="True" />
           </Node>
         </State>
