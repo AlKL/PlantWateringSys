@@ -6,22 +6,24 @@ import { Button } from 'react-bootstrap';
 export const PlantsTable = () => {
     const plants = useSelector(state => state.plantsReducer.plants);
     const dispatch = useDispatch();
-    const [watering, setWatering] = useState(false);
+    // const [watering, setWatering] = useState(false);
 
     useEffect(() => {
         GetPlants(dispatch);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    useEffect(() => {
-        GetPlants(dispatch);
-    }, [dispatch, watering]);
+    // useEffect(() => {
+    //     GetPlants(dispatch);
+    // }, [dispatch, watering]);
 
     //Increase plant water level until level 10
     const startWatering = (p, waterLevel) => {
-        WaterPlant(dispatch, p)
-        setWatering(!watering);
-        console.log(plants[0]);
+        if (p.waterLevel < 10) {
+            WaterPlant(dispatch, p)
+        }
+        // setWatering(!watering);
+        // console.log(plants[0]);
 
         // test(watering);
 
