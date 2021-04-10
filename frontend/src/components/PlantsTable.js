@@ -43,7 +43,7 @@ export const PlantsTable = () => {
                             </Button>
                         </td>
                         <td style={{ textAlign: 'left' }}>
-                            {p.value}
+                            Plant: {p.id}
                         </td>
                         <td style={{ textAlign: 'right' }}>
                             WATER LEVEL: {p.waterLevel}
