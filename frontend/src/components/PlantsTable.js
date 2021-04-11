@@ -30,9 +30,9 @@ export const PlantsTable = () => {
         // eslint-disable-next-line
     }, [counter]);
 
-    const decrementPlants = () => {
-        DecrementAllPlants(dispatch, plants);
-    }
+    // const decrementPlants = () => {
+    //     DecrementAllPlants(dispatch, plants);
+    // }
 
     return (
         <div>
@@ -48,7 +48,7 @@ export const PlantsTable = () => {
                     }
                 </tbody>
             </table>
-            <Button className='btn btn-danger' onClick={() => decrementPlants()}>Decrement All</Button>
+            {/* <Button className='btn btn-danger' onClick={() => decrementPlants()}>Decrement All</Button> */}
         </div>
     )
 }

@@ -10,3 +10,5 @@ Issues:
 - If you water a plant once, for example from 0 -> 1. It resets the hoursSinceWatered to 0. Thus, after an hour, the plant will be at level 0, but the user won't be alarmed since it hasn't been 6 hours. 
 
 Potential:
+- Generate a report based on SQL table (ie average waterlevel during given time of day)
+- Responsive
