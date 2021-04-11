@@ -7,40 +7,41 @@ const PlantsObj = ({ p }) => {
     const dispatch = useDispatch();
     const [interv, setInterv] = useState();
 
+    //Increments plant water level until level 10
     const waterPlant = (x) => {
-        console.log('lol ' + p.id);
+        console.log('Plant ID:  ' + p.id);
         const plusWateredPlant = { ...p, waterLevel: x };
         UpdatePlant(dispatch, plusWateredPlant);
     }
 
-    //Increase plant water level until level 10
+    //Repeat calls to waterPlant
     const startWatering = () => {
         let x = p.waterLevel;
-
-        setInterv(
-            setInterval(() => {
-                x += 1;
+        let y = setInterval(() => {
+            x += 1;
+            if (x <= 10) {
                 waterPlant(x)
-            }, 1000)
-        )
-
-        // if (p.waterLevel < 10) {
-        //     waterPlant(p);
-        //     setInterv(setInterval(5000))
-        // }
-
-        // setTimeout(() => {
-        //     if (p.waterLevel < 10) {
-        //         const plusWateredPlant = { ...p, waterLevel: p.waterLevel + 1 };
-        //         UpdatePlant(dispatch, plusWateredPlant);
-        //         startWatering(plusWateredPlant);
-        //     } 
-        // }, 1000)
+            } else {
+                console.log('Watering Complete');
+                clearInterval(y);
+            }
+        }, 1000)
+        setInterv(y);
     }
 
+    //Stop's startWatering function
     const stopWatering = () => {
+        console.log('Watering Complete');
         clearInterval(interv);
     }
+
+    //Decreases plant water level until 0, decreases by 1 every hour - just for testing but don't really need due to dec all
+    // const dropWaterLevel = (p) => {
+    //     if (p.waterLevel > 0) {
+    //         const dropWateredPlant = { ...p, waterLevel: p.waterLevel - 1 };
+    //         UpdatePlant(dispatch, dropWateredPlant);
+    //     }
+    // }
 
     return (
         <tr>
@@ -66,11 +67,6 @@ const PlantsObj = ({ p }) => {
             {/* <td style={{ width: '3rem' }}>
                 <Button className='btn' onClick={() => dropWaterLevel(p)}>
                     Dry!
-                </Button>
-            </td> */}
-            {/* <td style={{ width: '3rem' }}>
-                <Button className='btn' onClick={() => decrementPlants()}>
-                    DecrementAll!
                 </Button>
             </td> */}
         </tr>

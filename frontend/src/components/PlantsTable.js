@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { UpdatePlant, GetPlants, DecrementAllPlants } from '../services/plants';
 import Plant from './PlantsObj';
+import { Button } from 'react-bootstrap';
 
 //if all else fails, make new components out of each plant? Map these components so you can deal with them individually
 export const PlantsTable = () => {
@@ -14,30 +15,27 @@ export const PlantsTable = () => {
         GetPlants(dispatch);
     }, []);
 
-    //Decreases plant water level until 0, decreases by 1 every hour
-    const dropWaterLevel = (p) => {
-        if (p.waterLevel > 0) {
-            const dropWateredPlant = { ...p, waterLevel: p.waterLevel - 1 };
-            UpdatePlant(dispatch, dropWateredPlant);
-        }
-    }
-
     const decrementPlants = () => {
         DecrementAllPlants(dispatch, plants);
     }
 
-    return <table className='table table-dark'>
-        <tbody>
-            {
-                plants.map(p =>
-                    <Plant
-                        key={p.id}
-                        p={p}
-                    />
-                )
-            }
-        </tbody>
-    </table>
+    return (
+        <div>
+            <table className='table table-dark'>
+                <tbody>
+                    {
+                        plants.map(p =>
+                            <Plant
+                                key={p.id}
+                                p={p}
+                            />
+                        )
+                    }
+                </tbody>
+            </table>
+            <Button className='btn btn-danger' onClick={() => decrementPlants()}>Decrement All</Button>
+        </div>
+    )
 }
 
         // if (p.waterLevel < 10) {
