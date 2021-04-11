@@ -35,7 +35,7 @@ namespace Plants.Core
         {
             var updatedPlant = _context.Plants.First(n => n.Id == plant.Id);
             updatedPlant.WaterLevel = plant.WaterLevel;
-            updatedPlant.lastWaterTime = plant.lastWaterTime;
+            updatedPlant.hoursSinceWatered = plant.hoursSinceWatered;
             _context.SaveChanges();
         }
     }

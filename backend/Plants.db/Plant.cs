@@ -7,6 +7,6 @@ namespace Plants.db
         [Key]
         public int Id { get; set; }
         public int WaterLevel { get; set; }
-        public string lastWaterTime { get; set; }
+        public int hoursSinceWatered { get; set; }
     }
 }

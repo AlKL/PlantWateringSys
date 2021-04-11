@@ -24,7 +24,7 @@ const plantReducer = (state = initialState, action) => {
             const wateredPlant = {
                 ...findPlant,
                 waterLevel: action.payload.waterLevel,
-                lastWaterTime: action.payload.lastWaterTime
+                hoursSinceWatered: action.payload.hoursSinceWatered
             }
             return {
                 ...state, plants: state.plants.map(plant =>

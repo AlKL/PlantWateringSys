@@ -28,8 +28,8 @@ namespace Plants.db.Migrations
                     b.Property<int>("WaterLevel")
                         .HasColumnType("int");
 
-                    b.Property<string>("lastWaterTime")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("hoursSinceWatered")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

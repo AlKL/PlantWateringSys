@@ -9,7 +9,7 @@ using Plants.db;
 namespace Plants.db.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210410200504_initial")]
+    [Migration("20210411144213_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,8 +30,8 @@ namespace Plants.db.Migrations
                     b.Property<int>("WaterLevel")
                         .HasColumnType("int");
 
-                    b.Property<string>("lastWaterTime")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("hoursSinceWatered")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
