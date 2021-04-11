@@ -17,9 +17,11 @@ React Frontend
 * if Visual Studio's server does not open up to 'http://localhost:5000/plants', a tweak to the correct server will be required.
 You can find the area to be tweaked in frontend/src/services/plants.js 
 
+```javascript
     const axiosIntance = axios.create({
         baseURL: 'new-url-here',
     })
+```
 
 ## Other
 ### Assumptions:
