@@ -31,8 +31,14 @@ export const UpdatePlant = async (dispatch, plant) => {
 export const DecrementAllPlants = async (dispatch, plants) => {
     try {
         for (let i = 0; i < plants.length; i++) {
-            const decrementedPlant = { ...plants[i], waterLevel: plants[i].waterLevel - 1, hoursSinceWatered: plants[i].hoursSinceWatered };
+            const decrementedPlant = { ...plants[i], waterLevel: plants[i].waterLevel - 1, hoursSinceWatered: plants[i].hoursSinceWatered + 1 };
+            //if waterLevel level is greater than 0, decrement the water level
             if (decrementedPlant.waterLevel >= 0) {
+                await axiosInstance.put('', decrementedPlant);
+                dispatch(ActionCreators.updatePlant(decrementedPlant));
+            } else {
+                //if water level is 0, we still need to increment time since watered using hoursSinceWatered
+                const decrementedPlant = { ...plants[i], waterLevel: plants[i].waterLevel, hoursSinceWatered: plants[i].hoursSinceWatered + 1 };
                 await axiosInstance.put('', decrementedPlant);
                 dispatch(ActionCreators.updatePlant(decrementedPlant));
             }

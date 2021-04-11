@@ -8,7 +8,7 @@ const PlantsObj = ({ p }) => {
     const [interv, setInterv] = useState();
     const [showStop, setShow] = useState(false);
     const [showCooldown, setShowCooldown] = useState(false);
-
+    
     //Increments plant water level until level 10
     const waterPlant = (x) => {
         console.log('Plant ID:  ' + p.id);
@@ -24,9 +24,11 @@ const PlantsObj = ({ p }) => {
             if (x <= 10) {
                 waterPlant(x)
             } else {
-                console.log('Watering Complete');
+                console.log('Watering Stopped');
                 clearInterval(y);
                 setShow(false);
+                const justWateredPlant = { ...p, hoursSinceWatered: 0 };
+                UpdatePlant(dispatch, justWateredPlant);
                 setShowCooldown(true);
                 setTimeout(() => {
                     setShowCooldown(false);
@@ -42,19 +44,23 @@ const PlantsObj = ({ p }) => {
         console.log('Watering Complete');
         clearInterval(interv);
         setShow(false);
+
+        const justWateredPlant = { ...p, hoursSinceWatered: 0 };
+        UpdatePlant(dispatch, justWateredPlant);
+
         setShowCooldown(true);
         setTimeout(() => {
             setShowCooldown(false);
         }, 1000);
     }
 
-    // Decreases plant water level until 0, decreases by 1 every hour - just for testing but don't really need due to dec all
-    const dropWaterLevel = (p) => {
-        if (p.waterLevel > 0) {
-            const dropWateredPlant = { ...p, waterLevel: p.waterLevel - 1 };
-            UpdatePlant(dispatch, dropWateredPlant);
-        }
-    }
+    // // Decreases plant water level until 0, decreases by 1 every hour - just for testing but don't really need due to dec all
+    // const dropWaterLevel = (p) => {
+    //     if (p.waterLevel > 0) {
+    //         const dropWateredPlant = { ...p, waterLevel: p.waterLevel - 1 };
+    //         UpdatePlant(dispatch, dropWateredPlant);
+    //     }
+    // }
 
     const startButton = (
         <td style={{ width: '3rem' }}>
@@ -80,6 +86,14 @@ const PlantsObj = ({ p }) => {
         </td>
     )
 
+    const sixHoursSinceWatered = (
+        <td style={{ width: '3rem' }}>
+            <Button className='btn btn-secondary'>
+                !!!!!!
+            </Button>
+        </td>
+    )
+
     return (
         <tr>
             {
@@ -94,11 +108,9 @@ const PlantsObj = ({ p }) => {
             <td style={{ textAlign: 'right' }}>
                 LAST TIME: {p.hoursSinceWatered}
             </td>
-            {/* <td style={{ width: '3rem' }}>
-                <Button className='btn' onClick={() => dropWaterLevel(p)}>
-                    Dry!
-                </Button>
-            </td> */}
+            {
+                p.hoursSinceWatered > 6 ? sixHoursSinceWatered : <td></td>
+            }
         </tr>
     )
 }

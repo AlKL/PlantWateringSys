@@ -11,21 +11,24 @@ export const PlantsTable = () => {
 
     useEffect(() => {
         SetPlants(dispatch);
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
         DecrementAllPlants(dispatch, plants);
+        // eslint-disable-next-line
     }, [counter])
 
-    // useEffect(() => {
-    //     const timeout = setTimeout(() => {
-    //         setCounter(counter + 1);
-    //     }, 3600000);
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setCounter(counter + 1);
+        }, 3600000);
 
-    //     return () => {
-    //         clearTimeout(timeout);
-    //     };
-    // }, [counter]);   
+        return () => {
+            clearTimeout(timeout);
+        };
+        // eslint-disable-next-line
+    }, [counter]);
 
     const decrementPlants = () => {
         DecrementAllPlants(dispatch, plants);
