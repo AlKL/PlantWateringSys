@@ -25,7 +25,7 @@ You can find the area to be tweaked in frontend/src/services/plants.js
 
 ## Other
 ### Screenshot:
-![Image of Application](https://octodex.github.com/images/yaktocat.png)
+![Image of Application](https://github.com/AlKL/TheOfficePlants/blob/main/frontend/src/images/screenshot.PNG)
 
 ### Assumptions:
 - A plant takes 10 seconds to water from 0 to 10, thus each second increases one water level
