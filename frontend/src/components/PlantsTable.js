@@ -14,7 +14,7 @@ export const PlantsTable = () => {
     const dispatch = useDispatch();
     const [counter, setCounter] = useState(0);
     const [images, setImages] = useState([plant1img, plant2img, plant5img, plant4img, plant3img])
-    const [names, setNames] = useState(["Michael", "Jim", "Dwight", "Pam", "Daryl"])
+    const [names, setNames] = useState(["Michael", "Jim", "Dwight", "Pam", "Darryl"])
 
     useEffect(() => {
         SetPlants(dispatch);
