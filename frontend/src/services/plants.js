@@ -27,3 +27,19 @@ export const UpdatePlant = async (dispatch, plant) => {
         console.log(e);
     }
 }
+
+export const DecrementAllPlants = async (dispatch, plants) => {
+    try {
+        for (let i = 0; i < plants.length; i++) {
+            const decrementedPlant = { ...plants[i], waterLevel: plants[i].waterLevel - 1 };
+            if (decrementedPlant.waterLevel >= 0) {
+                await axiosInstance.put('', decrementedPlant);
+                dispatch(ActionCreators.updatePlant(decrementedPlant));
+            }
+        }
+
+    } catch (e) {
+        console.log('DecrementAllPlants Error');
+        console.log(e);
+    }
+}

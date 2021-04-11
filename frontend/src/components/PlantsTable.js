@@ -1,61 +1,39 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { UpdatePlant, GetPlants } from '../services/plants';
-import { Button } from 'react-bootstrap';
+import { UpdatePlant, GetPlants, DecrementAllPlants } from '../services/plants';
+import Plant from './PlantsObj';
 
+//if all else fails, make new components out of each plant? Map these components so you can deal with them individually
 export const PlantsTable = () => {
+    const [watering, setWatering] = useState(true);
     const plants = useSelector(state => state.plantsReducer.plants);
     const dispatch = useDispatch();
-    // const [watering, setWatering] = useState(false);
+    const [interv, setInterv] = useState();
 
     useEffect(() => {
         GetPlants(dispatch);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    // useEffect(() => {
-    //     GetPlants(dispatch);
-    // }, [dispatch, watering]);
-
-    //Increase plant water level until level 10
-    const startWatering = (p) => {
-        const plusWateredPlant = { ...p, waterLevel: p.waterLevel + 1 };
-        UpdatePlant(dispatch, plusWateredPlant);
-    }
 
     //Decreases plant water level until 0, decreases by 1 every hour
     const dropWaterLevel = (p) => {
-        const dropWateredPlant = { ...p, waterLevel: p.waterLevel - 1};
-        UpdatePlant(dispatch, dropWateredPlant);
+        if (p.waterLevel > 0) {
+            const dropWateredPlant = { ...p, waterLevel: p.waterLevel - 1 };
+            UpdatePlant(dispatch, dropWateredPlant);
+        }
+    }
+
+    const decrementPlants = () => {
+        DecrementAllPlants(dispatch, plants);
     }
 
     return <table className='table table-dark'>
         <tbody>
             {
                 plants.map(p =>
-                    <tr key={p.id}>
-                        <td style={{ width: '3rem' }}>
-                            <Button className='btn btn-danger' onClick={() => startWatering(p)}>
-                                Water!
-                            </Button>
-                        </td>
-                        <td style={{ textAlign: 'left' }}>
-                            Plant: {p.id}
-                        </td>
-                        <td style={{ textAlign: 'right' }}>
-                            WATER LEVEL: {p.waterLevel}
-                        </td>
-                        <td style={{ width: '3rem' }}>
-                            <Button className='btn' onClick={() => dropWaterLevel(p)}>
-                                Dry!
-                            </Button>
-                        </td>
-                        {/* <td style={{ width: '3rem' }}>
-                            <Button className='btn' onClick={() => stopWatering(p)}>
-                                Stop!
-                            </Button>
-                        </td> */}
-                    </tr>
+                    <Plant
+                        key={p.id}
+                        p={p}
+                    />
                 )
             }
         </tbody>

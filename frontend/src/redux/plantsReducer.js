@@ -23,7 +23,8 @@ const plantReducer = (state = initialState, action) => {
             const findPlant = state.plants.find(p => p.id === waterId);
             const wateredPlant = {
                 ...findPlant,
-                waterLevel: action.payload.waterLevel
+                waterLevel: action.payload.waterLevel,
+                lastWaterTime: action.payload.lastWaterTime
             }
             return {
                 ...state, plants: state.plants.map(plant =>
