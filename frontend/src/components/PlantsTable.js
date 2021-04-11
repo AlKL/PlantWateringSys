@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { DryingPlant, GetPlants, WaterPlant } from '../services/plants';
+import { UpdatePlant, GetPlants } from '../services/plants';
 import { Button } from 'react-bootstrap';
 
 export const PlantsTable = () => {
@@ -18,20 +18,15 @@ export const PlantsTable = () => {
     // }, [dispatch, watering]);
 
     //Increase plant water level until level 10
-    const startWatering = (p, waterLevel) => {
-        if (p.waterLevel < 10) {
-            WaterPlant(dispatch, p)
-        }
-        // setWatering(!watering);
-        // console.log(plants[0]);
+    const startWatering = (p) => {
+        const plusWateredPlant = { ...p, waterLevel: p.waterLevel + 1 };
+        UpdatePlant(dispatch, plusWateredPlant);
+    }
 
-        // test(watering);
-
-        // setTimeout(() => {
-        //     if (waterLevel < 10 && watering) {
-        //         startWatering(p, waterLevel + 1)
-        //     }
-        // }, 1000)
+    //Decreases plant water level until 0, decreases by 1 every hour
+    const dropWaterLevel = (p) => {
+        const dropWateredPlant = { ...p, waterLevel: p.waterLevel - 1};
+        UpdatePlant(dispatch, dropWateredPlant);
     }
 
     return <table className='table table-dark'>
@@ -40,7 +35,7 @@ export const PlantsTable = () => {
                 plants.map(p =>
                     <tr key={p.id}>
                         <td style={{ width: '3rem' }}>
-                            <Button className='btn btn-danger' onClick={() => startWatering(p, p.waterLevel)}>
+                            <Button className='btn btn-danger' onClick={() => startWatering(p)}>
                                 Water!
                             </Button>
                         </td>
@@ -51,7 +46,7 @@ export const PlantsTable = () => {
                             WATER LEVEL: {p.waterLevel}
                         </td>
                         <td style={{ width: '3rem' }}>
-                            <Button className='btn' onClick={() => DryingPlant(dispatch, p)}>
+                            <Button className='btn' onClick={() => dropWaterLevel(p)}>
                                 Dry!
                             </Button>
                         </td>
@@ -66,3 +61,17 @@ export const PlantsTable = () => {
         </tbody>
     </table>
 }
+
+        // if (p.waterLevel < 10) {
+        //     WaterPlant(dispatch, p)
+        // }
+        // setWatering(!watering);
+        // console.log(plants[0]);
+
+        // test(watering);
+
+        // setTimeout(() => {
+        //     if (waterLevel < 10 && watering) {
+        //         startWatering(p, waterLevel + 1)
+        //     }
+        // }, 1000)

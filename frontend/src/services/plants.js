@@ -11,25 +11,19 @@ export const GetPlants = async (dispatch) => {
     try {
         const { data } = await axiosInstance.get();
         dispatch(ActionCreators.setPlants(data));
-    } catch {
-        console.log('GetPlants Error');
-    }
-}
-
-export const WaterPlant = async (dispatch, plant) => {
-    try {
-        dispatch(ActionCreators.waterPlant(plant));
     } catch (e) {
-        console.log('WaterPlant Error');
+        console.log('GetAllPlants Error');
         console.log(e);
     }
 }
 
-export const DryingPlant = async (dispatch, plant) => {
+//API put request to backend to update plant's WaterLevel & DateTime watered
+export const UpdatePlant = async (dispatch, plant) => {
     try {
-        dispatch(ActionCreators.dryingPlant(plant));
+        await axiosInstance.put('', plant);
+        dispatch(ActionCreators.updatePlant(plant));
     } catch (e) {
-        console.log('DryingPlant Error');
+        console.log('UpdatePlant Error');
         console.log(e);
     }
 }
