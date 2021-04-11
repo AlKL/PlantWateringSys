@@ -2,7 +2,7 @@
 
 Our goal is to keep our 5 plants alive! This is an application that enables users to water our plants remotely.
 
-### How to run
+## How to run
 ASP.NET Backend
 1. In Visual Studio, run the 'backend' server
 2. This should open up a webpage to 'http://localhost:5000/plants' 
@@ -12,6 +12,15 @@ React Frontend
 2. run 'npm start' to launch the browser
 3. The webpage will now try to connect to 'http://localhost:5000/plants'
 
+
+## Troubleshooting
+* if Visual Studio's server does not open up to 'http://localhost:5000/plants', a tweak to the correct server will be required.
+You can find the area to be tweaked in frontend/src/services/plants.js 
+    const axiosIntance = axios.create({
+        baseURL: 'new-url-here',
+    })
+
+## Other
 ### Assumptions:
 - A plant takes 10 seconds to water from 0 to 10, thus each second increases one water level
 
@@ -22,10 +31,3 @@ React Frontend
 ### Potential extensions:
 - Generate a report based on SQL table (ie average waterlevel during given time of day)
 - Responsive design
-
-### Troubleshooting
-* if Visual Studio's server does not open up to 'http://localhost:5000/plants', a tweak to the correct server will be required.
-You can find the area to be tweaked in frontend/src/services/plants.js 
-    const axiosIntance = axios.create({
-        baseURL: 'new-url-here',
-    })
