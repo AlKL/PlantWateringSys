@@ -17,7 +17,7 @@ const plantReducer = (state = initialState, action) => {
         //Sets initial plants from db
         case ActionTypes.SET_PLANTS:
             return { ...state, plants: [...action.payload] };
-        //Increment water level
+        //Update water level
         case ActionTypes.UPDATE_PLANT:
             const waterId = action.payload.id;
             const findPlant = state.plants.find(p => p.id === waterId);

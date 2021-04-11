@@ -37,7 +37,6 @@ export const DecrementAllPlants = async (dispatch, plants) => {
                 dispatch(ActionCreators.updatePlant(decrementedPlant));
             }
         }
-
     } catch (e) {
         console.log('DecrementAllPlants Error');
         console.log(e);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { UpdatePlant } from '../services/plants';
@@ -7,18 +7,20 @@ const PlantsObj = ({ p }) => {
     const dispatch = useDispatch();
     const [interv, setInterv] = useState();
 
-    const waterPlant = () => {
-        console.log('lol');
-        const plusWateredPlant = { ...p, waterLevel: p.waterLevel + 1 };
+    const waterPlant = (x) => {
+        console.log('lol ' + p.id);
+        const plusWateredPlant = { ...p, waterLevel: x };
         UpdatePlant(dispatch, plusWateredPlant);
     }
 
     //Increase plant water level until level 10
     const startWatering = () => {
+        let x = p.waterLevel;
 
         setInterv(
             setInterval(() => {
-                waterPlant()
+                x += 1;
+                waterPlant(x)
             }, 1000)
         )
 
