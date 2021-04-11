@@ -7,6 +7,7 @@ import plant2img from '../images/plant2.png'
 import plant3img from '../images/plant3.png'
 import plant4img from '../images/plant4.png'
 import plant5img from '../images/plant5.png'
+import { Button } from 'react-bootstrap';
 
 export const PlantsTable = () => {
     const plants = useSelector(state => state.plantsReducer.plants);
@@ -52,7 +53,7 @@ export const PlantsTable = () => {
                     />
                 )
             }
-            {/* <Button className='btn btn-danger' onClick={() => decrementPlants}>Decrement All</Button> */}
+            {/* <Button className='btn btn-danger' onClick={() => decrementPlants()}>Decrement All</Button> */}
         </div>
     )
 }

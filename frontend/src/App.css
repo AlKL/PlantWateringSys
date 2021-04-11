@@ -109,6 +109,12 @@ p#textId {
   margin-bottom: 0;
 }
 
+p#alertP {
+  font-size: 20px;
+  margin-bottom: 0;
+  color: red;
+}
+
 .plantText {
   width: 100%;
   display: flex;
@@ -118,8 +124,4 @@ p#textId {
 
 .col {
   margin-bottom: 10px;
-}
-
-.plantName {
-  font-size: 25px;
 }

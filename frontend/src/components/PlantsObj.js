@@ -36,7 +36,7 @@ const PlantsObj = ({ p, img, name }) => {
                 setShowCooldown(true);
                 setTimeout(() => {
                     setShowCooldown(false);
-                }, 5000);
+                }, 30000);
             }
         }, 1000)
         setInterv(y);
@@ -55,7 +55,7 @@ const PlantsObj = ({ p, img, name }) => {
         setShowCooldown(true);
         setTimeout(() => {
             setShowCooldown(false);
-        }, 5000);
+        }, 30000);
     }
 
     // // Decreases plant water level until 0, decreases by 1 every hour - just for testing but don't really need due to dec all
@@ -84,17 +84,15 @@ const PlantsObj = ({ p, img, name }) => {
         </Button>
     )
 
-    const sixHoursSinceWatered = (
-        <Button className='btn btn-secondary'>
-            !!!!!!
-        </Button>
-    )
-
     return (
         <div className={`plantContainer containerNo${p.id}`}>
 
             <div className='plantName'>
-                {name}
+                {
+                    (p.hoursSinceWatered > 6)
+                        ? <p id='alertP'>{name} has not been watered since {p.hoursSinceWatered} hours ago!</p>
+                        : <p id='textId'>{name}</p>
+                }
             </div>
 
             <div className='plantImgContainer'>
@@ -103,7 +101,7 @@ const PlantsObj = ({ p, img, name }) => {
 
             <div className='plantText'>
                 <div className='col'>
-                    <p id='textId'>Water level</p>
+                    <p id='textId'>Water status</p>
                     <ProgressBar now={p.waterLevel * 10} label={`${p.waterLevel * 10}%`} />
                 </div>
 
