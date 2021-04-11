@@ -1,7 +1,14 @@
 .App {
   text-align: center;
-  width: 80%;
-  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.App h2 {
+  font-size: 50px;
+  color: #007BFF;
 }
 
 .App-logo {
@@ -40,3 +47,79 @@
   }
 }
 
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.plantsSection {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.plantContainer {
+  height: 390px;
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 5px;
+  border-radius: 10%;
+}
+
+.plantImgContainer {
+  width: 200px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.containerNo1 {
+  background-color: #E6F4F1;
+  color: #007BFF;
+}
+
+.containerNo2 {
+  background-color: #E6F4F1;
+  color: #007BFF;
+}
+
+.containerNo3 {
+  background-color: #E6F4F1;
+  color: #007BFF;
+}
+
+.containerNo4 {
+  background-color: #E6F4F1;
+  color: #007BFF;
+}
+
+.containerNo5 {
+  background-color: #E6F4F1;
+  color: #007BFF;
+}
+
+p#textId {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.plantText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.col {
+  margin-bottom: 10px;
+}
+
+.plantName {
+  font-size: 25px;
+}

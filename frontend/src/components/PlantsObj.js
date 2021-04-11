@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from 'react-bootstrap';
+import { ProgressBar } from "react-bootstrap";
 import { UpdatePlant } from '../services/plants';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const PlantsObj = ({ p }) => {
+const PlantsObj = ({ p, img, name }) => {
     const dispatch = useDispatch();
     const [interv, setInterv] = useState();
     const [showStop, setShow] = useState(false);
     const [showCooldown, setShowCooldown] = useState(false);
-    
+
     //Increments plant water level until level 10
     const waterPlant = (x) => {
         console.log('Plant ID:  ' + p.id);
@@ -27,12 +29,14 @@ const PlantsObj = ({ p }) => {
                 console.log('Watering Stopped');
                 clearInterval(y);
                 setShow(false);
-                const justWateredPlant = { ...p, hoursSinceWatered: 0 };
+
+                const justWateredPlant = { ...p, waterLevel: 10, hoursSinceWatered: 0 };
                 UpdatePlant(dispatch, justWateredPlant);
+
                 setShowCooldown(true);
                 setTimeout(() => {
                     setShowCooldown(false);
-                }, 1000);
+                }, 5000);
             }
         }, 1000)
         setInterv(y);
@@ -51,7 +55,7 @@ const PlantsObj = ({ p }) => {
         setShowCooldown(true);
         setTimeout(() => {
             setShowCooldown(false);
-        }, 1000);
+        }, 5000);
     }
 
     // // Decreases plant water level until 0, decreases by 1 every hour - just for testing but don't really need due to dec all
@@ -63,55 +67,51 @@ const PlantsObj = ({ p }) => {
     // }
 
     const startButton = (
-        <td style={{ width: '3rem' }}>
-            <Button className='btn btn-danger' onClick={() => startWatering()}>
-                Water!
-            </Button>
-        </td>
+        <Button className='btn' onClick={() => startWatering()}>
+            Water
+        </Button>
     )
 
     const stopButton = (
-        <td style={{ width: '3rem' }}>
-            <Button className='btn' onClick={() => stopWatering()}>
-                Stop!
-            </Button>
-        </td>
+        <Button className='btn btn-danger' onClick={() => stopWatering()}>
+            Stop
+        </Button>
     )
 
     const cooldownButton = (
-        <td style={{ width: '3rem' }}>
-            <Button className='btn btn-secondary'>
-                Cooldown
-            </Button>
-        </td>
+        <Button className='btn btn-secondary'>
+            Cooldown
+        </Button>
     )
 
     const sixHoursSinceWatered = (
-        <td style={{ width: '3rem' }}>
-            <Button className='btn btn-secondary'>
-                !!!!!!
-            </Button>
-        </td>
+        <Button className='btn btn-secondary'>
+            !!!!!!
+        </Button>
     )
 
     return (
-        <tr>
-            {
-                showStop ? stopButton : (showCooldown ? cooldownButton : startButton)
-            }
-            <td style={{ textAlign: 'left' }}>
-                Plant: {p.id}
-            </td>
-            <td style={{ textAlign: 'center' }}>
-                WATER LEVEL: {p.waterLevel}
-            </td>
-            <td style={{ textAlign: 'right' }}>
-                LAST TIME: {p.hoursSinceWatered}
-            </td>
-            {
-                p.hoursSinceWatered > 6 ? sixHoursSinceWatered : <td></td>
-            }
-        </tr>
+        <div className={`plantContainer containerNo${p.id}`}>
+
+            <div className='plantName'>
+                {name}
+            </div>
+
+            <div className='plantImgContainer'>
+                <img src={img}></img>
+            </div>
+
+            <div className='plantText'>
+                <div className='col'>
+                    <p id='textId'>Water level</p>
+                    <ProgressBar now={p.waterLevel * 10} label={`${p.waterLevel * 10}%`} />
+                </div>
+
+                <div className='actionButton'>
+                    {showStop ? stopButton : (showCooldown ? cooldownButton : startButton)}
+                </div>
+            </div>
+        </div>
     )
 }
 
