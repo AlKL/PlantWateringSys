@@ -42,7 +42,6 @@ You can find the area to be tweaked in frontend/src/services/plants.js
 - A plant dehydrates by 1 water level every hour
 
 ### Notes:
-- If you water a plant once, for example from 0 -> 1. It resets the hoursSinceWatered to 0. Thus, after an hour, the plant will be at level 0, but the user won't be alarmed since it hasn't been 6 hours. 
 - Some error warnings have been left for debugging purposes
 
 ### Potential extensions:
@@ -50,3 +49,4 @@ You can find the area to be tweaked in frontend/src/services/plants.js
 - Responsive design
 - Add and delete plants
 - Update plant picture
+- If you water a plant once, for example from 0 -> 1. It resets the hoursSinceWatered to 0. Thus, after an hour, the plant will be at level 0, but the user won't be alarmed since it hasn't been 6 hours. 
