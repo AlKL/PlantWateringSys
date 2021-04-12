@@ -29,7 +29,7 @@ You can find the area to be tweaked in frontend/src/services/plants.js
 ## Features:
 * Lists all plants on web page and corresponding watering status
 * Begin and cease watering plant
-* Can water multiple plants simultaneously
+* Ability to water multiple plants simultaneously
 * Prevent over-watering with 30 second watering cooldown
 * Visual warning when plant has not been watered in over 6 hours
 
