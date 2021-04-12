@@ -4,15 +4,15 @@ Our goal is to keep our 5 plants alive! This is an application that enables user
 
 ## How to run
 ASP.NET Backend
-1. In Visual Studio, open to backend directory
-2. Change the program from IIS Express to backend and run the server
-3. This should open up a webpage to 'http://localhost:5000/plants' with JSON elements
+1. In Visual Studio, open the workspace to the backend directory
+2. Beside the run button, change the program from 'IIS Express' to 'backend' and run the server
+3. This should open up a webpage to 'http://localhost:5000/plants' showing JSON elements
 
 React Frontend
-1. Open frontend directory in IDE of choice
-2. run 'npm install' in the frontend directory
-3. run 'npm start' to launch the browser
-4. The opened webpage will now try to connect to he backend server at 'http://localhost:5000/plants'
+1. Navigate to the frontend directory in console
+2. run 'npm install' in this directory
+3. run 'npm start' in this directory
+4. A webpage will open up and will try to connect to the backend server at 'http://localhost:5000/plants'
 
 ## Troubleshooting
 * if Visual Studio's server does not open up to 'http://localhost:5000/plants', a tweak to the correct server will be required.
@@ -24,6 +24,8 @@ You can find the area to be tweaked in frontend/src/services/plants.js
     })
 ```
 
+* replace 'new-url-here' in the above code with the server's address
+
 ## Features
 * Lists all plants on web page and corresponding watering status
 * Begin and cease watering plant
@@ -31,7 +33,6 @@ You can find the area to be tweaked in frontend/src/services/plants.js
 * Prevent over-watering with 30 second watering cooldown
 * Visual warning when plant has not been watered in over 6 hours
 
-## Other
 ### Screenshot:
 ![Image of Application](https://github.com/AlKL/TheOfficePlants/blob/main/frontend/src/images/screenshot.PNG)
 
