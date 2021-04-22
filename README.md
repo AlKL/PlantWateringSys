@@ -2,7 +2,7 @@
 
 Our goal is to keep our 5 plants alive! This is an application that enables users to water our plants remotely.
 
-## How to run:
+## Getting started:
 ASP.NET Backend
 1. In Visual Studio, open the workspace to the backend directory
 2. Beside the run button, change the program from 'IIS Express' to 'backend' and run the server
