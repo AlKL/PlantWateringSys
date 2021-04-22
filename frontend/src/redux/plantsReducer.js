@@ -2,11 +2,13 @@ const initialState = {
     plants: [],
 }
 
+// typing for ActionCreators
 export const ActionTypes = {
     SET_PLANTS: 'SET_PLANTS',
     UPDATE_PLANT: 'UPDATE_PLANT'
 }
 
+// called by dispatch
 export const ActionCreators = {
     setPlants: payload => ({ type: ActionTypes.SET_PLANTS, payload }),
     updatePlant: payload => ({ type: ActionTypes.UPDATE_PLANT, payload }),
@@ -20,7 +22,9 @@ const plantReducer = (state = initialState, action) => {
         //Update water level
         case ActionTypes.UPDATE_PLANT:
             const waterId = action.payload.id;
+            // gets the plant object from the state based on the id
             const findPlant = state.plants.find(p => p.id === waterId);
+            // clone the found plant and update
             const wateredPlant = {
                 ...findPlant,
                 waterLevel: action.payload.waterLevel,

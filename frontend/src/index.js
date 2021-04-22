@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
+// provider allows for all nested components to access the Redux store
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

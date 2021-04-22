@@ -5,8 +5,8 @@ const axiosInstance = axios.create({
     baseURL: 'http://localhost:5000/plants',
 })
 
-//Calls backend API to reflect in the DB 
-//After advising the backend, it calls Redux to reflect in the frontend
+// calls backend API to reflect in the DB 
+// after advising the backend, it calls Redux to reflect in the frontend
 export const SetPlants = async (dispatch) => {
     try {
         const { data } = await axiosInstance.get();
@@ -17,7 +17,7 @@ export const SetPlants = async (dispatch) => {
     }
 }
 
-//API put request to backend to update plant's WaterLevel & DateTime watered
+// api put request to backend to update plant's WaterLevel & DateTime watered
 export const UpdatePlant = async (dispatch, plant) => {
     try {
         await axiosInstance.put('', plant);
@@ -28,6 +28,8 @@ export const UpdatePlant = async (dispatch, plant) => {
     }
 }
 
+// api put request to backend to decrement all plant's water levels
+// passed in an array current state of all plants
 export const DecrementAllPlants = async (dispatch, plants) => {
     try {
         for (let i = 0; i < plants.length; i++) {
